@@ -1,0 +1,4 @@
+.main
+  %ul.main__studios
+    - @studios.each_with_index do |studio, index|
+      = render partial: "studio", locals: { studio: studio, index: index }

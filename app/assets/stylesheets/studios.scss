@@ -1,0 +1,73 @@
+// Place all the styles related to the studios controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+.main{
+  width: 100%;
+  height: calc(100vh - 50px);
+  background-color: lightgray;
+  padding-top:50px;
+
+  &__studios{
+    width: 90%;
+    height: 300px;
+    background-color: lightgreen;
+    margin: 50px auto;
+    display: flex;
+    justify-content: space-between;
+
+    &__studio{
+      background-color: lightblue;
+      &--img{
+        width: 250px;
+        height: 120px;
+      }
+      &--name{
+        display: block;
+        font-size: 20px;
+      }
+      &--area{
+        font-size: 14px;
+        margin-left: 20px;
+      }
+    }
+  }
+}
+
+.show{
+  width: 90%;
+  height: 300px;
+  background-color: lightsalmon;
+  margin: 50px auto;
+}
+
+.reserve{
+  width: 90%;
+  height: 300px;
+  background-color: lightseagreen;
+  margin: 50px auto;
+
+  &__title{
+    font-size: 20px;
+    color: red;
+  }
+
+  &__table{
+    
+    
+  }
+}
+
+table{
+  border: solid 1px black;
+}
+th{
+  border: solid 1px black;
+}
+tr{
+  border: solid 1px black;
+}
+td{
+  border: solid 1px black;
+}

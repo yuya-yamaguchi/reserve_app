@@ -1,0 +1,12 @@
+%br
+%br
+%br
+= form_with url: studio_reserve_path, local: true, method: :patch do |f|
+  = f.select :date, @week.map{|w| [w]}, {selected: @studio_resrve.date}
+  = f.select :start_hour, @hairetsu.map{|h| [h]}, {selected: @studio_resrve.hour}
+  = f.select :end_hour, @hairetsu2.map{|h| [h]}, {selected: @studio_resrve.hour + 1}
+  = f.submit "予約する"
+
+-# = form_for studio_reserve_path, method: :patch do |f|
+-# = form_for [@studio, @studio_resrve] do |f|
+-# = form_with url: studio_reserf_path, html: { method: :patch } do |f|
