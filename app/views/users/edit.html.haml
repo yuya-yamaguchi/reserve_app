@@ -1,0 +1,38 @@
+.main
+  .user-edit
+    = form_with(model: @user) do |f|
+      .user-edit__personal
+        .user-edit__personal__title
+          個人情報
+        .user-edit__personal__info
+          %table
+            %tr
+              %th
+                氏名
+              %td
+                姓
+                = f.text_field :last_name, value: @user.last_name
+                名
+                = f.text_field :first_name, value: @user.first_name
+            %tr
+              %th
+                電話番号
+              %td
+                = f.text_field :tel_no, value: @user.tel_no
+            %tr
+              %th
+                Email
+              %td
+                = f.text_field :email, value: @user.email
+      .user-edit__profile
+        .user-edit__profile__title
+          プロフィール
+        .user-edit__profile__info
+          %table
+            %tr
+              %th
+                自己紹介
+              %td
+                = f.text_area :profile, value: @user.profile
+      .user-edit__button
+        = f.submit "変更"

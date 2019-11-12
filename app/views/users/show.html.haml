@@ -1,0 +1,45 @@
+.mypage
+  .mypage__profile
+    = image_tag("/user_img/#{@user.img}", class: "mypage__profile__image")
+    .mypage__profile__name
+      = @user.last_name 
+      = @user.first_name
+    .mypage__profile__self-introduction
+      = @user.profile
+    - if user_signed_in? && current_user.id == @user.id
+      = link_to "変更", edit_user_path(current_user)
+  
+  .mypage__posts
+    .mypage__posts--title
+      投稿一覧
+    .mypage__posts__lists
+      - @posts.each do |post|
+        .mypage__posts__lists__list
+          = link_to post.title, post_path(post.id)
+          %br
+          = post.user.first_name
+          %br
+          %br
+        
+  - if user_signed_in? && current_user.id == @user.id
+    .mypage__reserve-status
+      .mypage__reserve-status--title
+        スタジオ予約状況
+      .mypage__reserve-status__detail
+        - @reserve_details.each do |reserve_detail|
+          スタジオ：
+          = reserve_detail.studio.name
+          st
+          %br
+          予約日時：
+          = reserve_detail.reserve_date
+          = reserve_detail.start_time
+          時〜
+          = reserve_detail.end_time
+          時
+          %br
+          %br
+    .mypage__messages
+      .mypage__messages--title
+        メッセージ一覧
+      .mypage__messages__message

@@ -1,6 +1,7 @@
 class StudiosController < ApplicationController
   def index
     @studios = Studio.all
+    @posts = Post.limit(3).order('updated_at DESC').includes(:user)
   end
 
   def show
@@ -18,12 +19,18 @@ class StudiosController < ApplicationController
     # インクリメント用変数
     hour = min_hour
     
+    # 予約表設定処理
     @studio_reserves = []
     while max_hour >= hour do
       # 各日の時間単位で配列に設定
-      @studio_reserves.push(Reserve.where(studio_id: params[:id]).where(hour: hour).where('date between ? and ?', @week[1], @week[7]).order(:date))
+      @studio_reserves.push(Reserve.where(studio_id: params[:id])
+                                   .where(hour: hour)
+                                   .where('date between ? and ?', @week[1], @week[7])
+                                   .order(:date))
       hour += 1
     end
+
+    
   end
 
 end

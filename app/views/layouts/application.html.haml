@@ -11,4 +11,18 @@
     %header.header
       .title
         = link_to "reserve", root_path
+      .info
+        %li
+          = link_to "スタジオ一覧", root_path
+        %li
+          = link_to "掲示板", posts_path
+        %li
+          = link_to "Web予約", reserves_path
+        %li.user
+          - if user_signed_in?
+            = link_to "マイページ", user_path(current_user.id)
+            = link_to "ログアウト", destroy_user_session_path, method: :delete
+          - else
+            = link_to "新規会員登録", new_user_registration_path, class: 'post'
+            = link_to "ログイン", new_user_session_path, class: 'post'
     = yield

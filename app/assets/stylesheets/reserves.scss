@@ -1,3 +1,20 @@
 // Place all the styles related to the reserves controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+.reserving{
+  width: 50%;
+  margin: 50px auto;
+  background-color: mediumorchid;
+
+  &__title{
+    font-size: 18px;
+  }
+  &__form{
+    &__date{
+      
+    }
+    &__time{
+    
+    }
+  }
+}

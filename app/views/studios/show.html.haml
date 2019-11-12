@@ -1,24 +1,48 @@
 .main
-  = @studio.name
-  .show
-    画像を表示します
+  .studio
+    .studio__name
+      = @studio.name
+      st
+    .studio__img
+      = image_tag("/studio_img/#{@studio.img}")
+    .studio__explain
+      .studio__explain__intro
+        最新の設備を整えたスタジオです。
+        %br
+        動画撮影、レコーディングも可能です。
+      .studio__explain__inst
+        %b GuitarAmp:
+        = @studio.guitar_amp
+        %br
+        %b BassAmp:
+        = @studio.bass_amp
+        %br
+        %b Drums:
+        = @studio.drums
+        %br
+        %b Keybords:
+        = @studio.keybords
+      .studio__explain__fee
+        料金（1時間）：
+        = @studio.fee
+        円
   .reserve
     .reserve__title
       予約表
-    .reserve__table
-      %table
+    %table.reserve__table
+      %tr.reserve__table--date
+        - @week.each do |day|
+          %th
+            = day
+      - @studio_reserves.each do |studio_reserve|
         %tr
-          - @week.each do |day|
-            %th
-              = day
-        - @studio_reserves.each do |studio_reserve|
-          %tr
-            - studio_reserve.each_with_index do |reserve, cnt|
-              - if cnt == 0
-                %td
-                  = reserve.hour
-              %td
-                - if reserve.reserve_flg == 0
-                  = link_to "◎", studio_reserve_path(params[:id], reserve.id)
-                - else
-                  ×
+          - studio_reserve.each_with_index do |reserve, cnt|
+            - if cnt == 0
+              %td.reserve__table--time
+                = reserve.hour
+            - if reserve.reserve_flg == 0
+              %td.reserve__table--possible
+                = link_to "◎", studio_reserve_path(params[:id], reserve.id)
+            - else
+              %td.reserve__table--impossible
+                ×

@@ -1,11 +1,19 @@
-%br
-%br
-%br
-= form_with url: studio_reserve_path, local: true, method: :patch do |f|
-  = f.select :date, @week.map{|w| [w]}, {selected: @studio_resrve.date}
-  = f.select :start_hour, @hairetsu.map{|h| [h]}, {selected: @studio_resrve.hour}
-  = f.select :end_hour, @hairetsu2.map{|h| [h]}, {selected: @studio_resrve.hour + 1}
-  = f.submit "予約する"
+.main
+  .reserving
+    .reserving__title
+      = @studio.name
+      st
+    .reserving__form
+      = form_with url: studio_reserve_path, local: true, method: :patch do |f|
+        日付：
+        = f.select :date, @week.map{|w| [w]}, {selected: @studio_resrve.date}, {class: "reserving__form__date"}
+        .reserving__form__time
+          時間：
+          = f.select :start_hour, @hairetsu.map{|h| [h]}, {selected: @studio_resrve.hour}, {class: "reserving__form--start"}
+          時〜
+          = f.select :end_hour, @hairetsu2.map{|h| [h]}, {selected: @studio_resrve.hour + 1}, {class: "reserving__form--end"}
+          時
+        = f.submit "予約する"
 
 -# = form_for studio_reserve_path, method: :patch do |f|
 -# = form_for [@studio, @studio_resrve] do |f|

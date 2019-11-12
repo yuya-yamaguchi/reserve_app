@@ -1,0 +1,45 @@
+/* 一覧画面 */
+
+.posts{
+  width: 50%;
+  margin: 50px auto;
+  background-color: lightsteelblue;
+  &__post{
+    width: 90%;
+    margin: 10px auto;
+    background-color: white;
+    &--title{
+      font-size: 18px;
+    }
+    &--name{
+      font-size: 12px;
+    }
+    &--date{
+      color: gray;
+      font-size: 12px;
+    }
+  }
+}
+
+.post-new{
+  background-color: lightgreen;
+  float: right;
+  margin: 50px;
+  
+}
+
+/* 詳細画面 */
+.post{
+  width: 50%;
+  margin: 50px auto;
+  background-color: lightsteelblue;
+  &__user{
+    color: red;
+  }
+  &__title{
+    color: green;
+  }
+  &__contents{
+    color: red;
+  }
+}

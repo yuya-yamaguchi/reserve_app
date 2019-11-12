@@ -1,0 +1,15 @@
+.main
+  .post
+    .post__user
+      投稿者：
+      = @post.user.last_name
+      = @post.user.first_name
+    .post__title
+      タイトル
+      %br
+      = @post.title
+    .post__contents
+      内容
+      %br
+      = @post.contents
+    = link_to "編集", edit_post_path(@post.id)

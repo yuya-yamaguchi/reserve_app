@@ -10,7 +10,27 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_11_07_065521) do
+ActiveRecord::Schema.define(version: 2019_11_11_101746) do
+
+  create_table "posts", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "title"
+    t.text "contents"
+    t.string "img"
+    t.bigint "user_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_posts_on_user_id"
+  end
+
+  create_table "reserve_details", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.bigint "studio_id", null: false
+    t.date "reserve_date", null: false
+    t.integer "start_time", null: false
+    t.integer "end_time", null: false
+    t.index ["studio_id"], name: "index_reserve_details_on_studio_id"
+    t.index ["user_id"], name: "index_reserve_details_on_user_id"
+  end
 
   create_table "reserves", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.bigint "studio_id", null: false
@@ -27,7 +47,32 @@ ActiveRecord::Schema.define(version: 2019_11_07_065521) do
     t.integer "fee"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "img"
+    t.string "guitar_amp"
+    t.string "bass_amp"
+    t.string "drums"
+    t.string "keybords"
   end
 
+  create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "last_name", null: false
+    t.string "first_name", null: false
+    t.string "tel_no", null: false
+    t.string "email", default: "", null: false
+    t.string "encrypted_password", default: "", null: false
+    t.string "reset_password_token"
+    t.datetime "reset_password_sent_at"
+    t.datetime "remember_created_at"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "img"
+    t.text "profile"
+    t.index ["email"], name: "index_users_on_email", unique: true
+    t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+  end
+
+  add_foreign_key "posts", "users"
+  add_foreign_key "reserve_details", "studios"
+  add_foreign_key "reserve_details", "users"
   add_foreign_key "reserves", "studios"
 end

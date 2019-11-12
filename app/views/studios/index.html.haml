@@ -1,4 +1,28 @@
 .main
-  %ul.main__studios
-    - @studios.each_with_index do |studio, index|
-      = render partial: "studio", locals: { studio: studio, index: index }
+  .studio-list
+    .studio-list__title
+      スタジオ一覧
+    %ul.studio-list__studios
+      - @studios.each_with_index do |studio, index|
+        = render partial: "studio", locals: { studio: studio, index: index }
+  .board
+    .board__title
+      掲示板
+    .board__posts
+      - @posts.each do |post|
+        .board__posts__post
+          .board__posts__post--title
+            = link_to post.title, post_path(post.id)
+          .board__posts__post--name
+            投稿者：
+            = link_to post.user.first_name, user_path(post.user.id)
+            %br
+          .board__posts__post--date
+            更新日時：
+            = post.created_at
+            %br
+            投稿日時：
+            = post.updated_at
+      .board__posts__link
+        = link_to "掲示板一覧へ", posts_path
+

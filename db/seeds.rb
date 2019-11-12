@@ -5,14 +5,25 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
-hour = 10
 
-if Rails.env == "development"
-  42.times do |i|
-    Reserve.create!(studio_id: 1, date: "2019-11-07", hour: hour, reserve_flg: 0, created_at: "2019-11-07", updated_at: "2019-11-07")
-    hour += 1
-    if hour == 16
-      hour = 10
-    end
-  end
-end
+# require 'date'
+# today = Date.today
+# hour = 10
+# date_cnt = 0
+
+# if Rails.env == "development"
+#   # スタジオ単位
+#   4.times do |i|
+#     # 日単位
+#     while date_cnt < 365 do
+#       # 時間単位
+#       while hour < 22 do
+#         Reserve.create!(studio_id: i + 1, date: today + date_cnt, hour: hour, reserve_flg: 0, created_at: "2019-11-11", updated_at: "2019-11-11")
+#         hour += 1
+#       end
+#       hour = 10
+#       date_cnt += 1
+#     end
+#     date_cnt = 0
+#   end
+endAdminUser.create!(email: 'admin@example.com', password: 'password', password_confirmation: 'password') if Rails.env.development?
