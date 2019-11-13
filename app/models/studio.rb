@@ -1,4 +1,4 @@
 class Studio < ApplicationRecord
-  has_many :resrves
+  has_many :reserves
   has_many :reserve_details
 end

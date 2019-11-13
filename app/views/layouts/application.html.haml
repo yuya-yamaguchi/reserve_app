@@ -17,7 +17,7 @@
         %li
           = link_to "掲示板", posts_path
         %li
-          = link_to "Web予約", reserves_path
+          = link_to "管理者用", admin_root_path
         %li.user
           - if user_signed_in?
             = link_to "マイページ", user_path(current_user.id)

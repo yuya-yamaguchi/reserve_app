@@ -10,7 +10,6 @@
 # today = Date.today
 # hour = 10
 # date_cnt = 0
-
 # if Rails.env == "development"
 #   # スタジオ単位
 #   4.times do |i|
@@ -26,4 +25,5 @@
 #     end
 #     date_cnt = 0
 #   end
-endAdminUser.create!(email: 'admin@example.com', password: 'password', password_confirmation: 'password') if Rails.env.development?
+#end
+AdminUser.create!(email: 'admin@gmail.com', password: 'password', password_confirmation: 'password') if Rails.env.development?
