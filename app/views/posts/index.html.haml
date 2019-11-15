@@ -1,20 +1,22 @@
 .main
-  .post-new
-    = link_to "新規投稿", new_post_path
-  .posts
-    投稿一覧
-    - @posts.each do |post|
-      .posts__post
-        .posts__post--title
-          タイトル：
-          = link_to post.title, post_path(post.id)
-        .posts__post--name
-          投稿者：
-          = post.user.first_name
-        .posts__post--date
-          更新日時：
-          = post.updated_at
-          %br
-          投稿日時：
-          = post.updated_at
+  .board
+    .board__post-new
+      = link_to "新規投稿", new_post_path
+    .board__posts
+      投稿一覧
+      = render partial: "posts/posts", locals: { posts: @posts }
+      -# - @posts.each do |post|
+      -#   .posts__post
+      -#     .posts__post--title
+      -#       タイトル：
+      -#       = link_to post.title, post_path(post.id)
+      -#     .posts__post--name
+      -#       投稿者：
+      -#       = post.user.first_name
+      -#     .posts__post--date
+      -#       更新日時：
+      -#       = post.updated_at
+      -#       %br
+      -#       投稿日時：
+      -#       = post.updated_at
           

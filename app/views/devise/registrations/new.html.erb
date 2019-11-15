@@ -39,6 +39,9 @@
   <div class="actions">
     <%= f.submit "Sign up" %>
   </div>
+  <div>
+    <%= link_to "google認証", user_google_omniauth_authorize_path %>
+  </div>
 <% end %>
 
 <%= render "devise/shared/links" %>

@@ -11,6 +11,7 @@ services:
       - db
     tty: true
     stdin_open: true
+    env_file: .sec_env
   db:
     image: mysql:5.7
     volumes:

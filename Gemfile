@@ -67,4 +67,7 @@ gem 'erb2haml'
 gem 'devise'
 gem 'activeadmin'
 gem 'jquery-rails'
+gem 'omniauth'
+gem 'omniauth-google-oauth2'
+gem "font-awesome-rails"
 

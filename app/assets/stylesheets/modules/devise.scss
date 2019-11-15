@@ -1,0 +1,37 @@
+.account-page{
+  width: 60%;
+  height: 500px;
+  margin: 60px auto;
+  // background-color: lightblue;
+  &__title{
+    font-size: 18px;
+  }
+  &__ownsite{
+    width: 90%;
+    margin: 20px auto;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+  }
+  &__sns{
+    width: 90%;
+    margin: 20px auto;
+    // background-color: #fff;
+    // border: 1px solid #ddd;
+    a{
+      text-decoration: none;
+    }
+    &__google{
+      width: 180px;
+      height: 40px;
+      background-color: lightcoral;
+      color: black;
+      border-radius: 5px;
+      text-align: center;
+      line-height: 40px;
+      border: 1px solid gray;
+      filter: drop-shadow(2px 2px 2px rgba(0,0,0,0.6));
+    }
+  }
+  
+}

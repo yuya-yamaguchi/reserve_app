@@ -1,0 +1,15 @@
+- posts.each do |post|
+  .board__posts__post
+    .board__posts__post__left
+      = image_tag("/user_img/#{post.user.img}", class: "board__posts__post__left--userimg")
+      .board__posts__post__left--title
+        = link_to post.title, post_path(post.id)
+        .board__posts__post__left--name
+          = link_to post.user.first_name, user_path(post.user.id)
+    .board__posts__post__right
+      .board__posts__post__right--date
+        更新日時：
+        = post.created_at
+        %br
+        投稿日時：
+        = post.updated_at

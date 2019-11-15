@@ -6,7 +6,7 @@
   height: 100%;
   background-color: lightgray;
   padding:50px 0;
-  // position: absolute;
+  font-family: "Hiragino Kaku Gothic ProN","メイリオ", sans-serif;
 }
 
 .studio-list{
@@ -16,7 +16,8 @@
   margin: 50px auto;
 
   &__title{
-    font-size: 18px;
+    font-size: 20px;
+    font-family: "Hiragino Kaku Gothic ProN","メイリオ", sans-serif;
   }
   &__studios{
     width: 90%;
@@ -28,10 +29,12 @@
       font-size: 18px;
     }
     &__studio{
-      background-color: lightblue;
+      // background-color: lightblue;
       &--img{
         width: 250px;
         height: 150px;
+        border-radius: 3px;
+        filter: drop-shadow(2px 2px 2px rgba(0,0,0,0.6));
       }
       &--name{
         display: block;
@@ -44,42 +47,8 @@
       &--details{
         font-size: 12px;
         margin-left: 10px;
+        font-family: "Hiragino Kaku Gothic ProN","メイリオ", sans-serif;
       }
-    }
-  }
-}
-
-.board{
-  width: 90%;
-  height: 500px;
-  background-color: lightcoral;
-  margin: 50px auto;
-  &__title{
-    font-size: 18px;
-  }
-  &__posts{
-    width: 90%;
-    margin: 20px auto;
-    background-color: lightgray;
-    &__post{
-      height: 100px;
-      margin: 10px;
-      background-color: white;
-      &--title{
-        font-size: 18px;
-      }
-      &--name{
-        font-size: 14px;
-        color: gray;
-      }
-      &--date{
-        font-size: 12px;
-        color: gray;
-      }
-    }
-    &__link{
-      background-color: lightslategrey;
-      text-align: center;
     }
   }
 }
@@ -108,7 +77,6 @@
       margin-bottom: 20px;
     }
   }
-
 }
 
 .reserve{
@@ -156,4 +124,3 @@
     border: solid 1px black;
   }
 }
-
