@@ -1,10 +1,14 @@
 /* 一覧画面 */
 .board{
   width: 90%;
-  background-color: lightcoral;
+  // background-color: lightcoral;
   margin: 50px auto;
   &__title{
-    font-size: 20px;
+    font-size: 30px;
+    font-family: "Hiragino Kaku Gothic ProN","メイリオ", sans-serif;
+    padding-top: 30px;
+    margin-bottom: 30px;
+    border-bottom: 2px solid;
   }
   &__posts{
     width: 90%;
@@ -17,8 +21,7 @@
       background-color: white;
       border-radius: 3px;
       border: 1px solid gray;
-      // display: flex;
-      // justify-content:space-around;
+      
       &__left{
         float :left;
         &--userimg{
@@ -50,7 +53,7 @@
       }
     }
     &__link{
-      background-color: lightslategrey;
+      font-size: 20px;
       text-align: center;
     }
   }

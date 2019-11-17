@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_11_14_071947) do
+ActiveRecord::Schema.define(version: 2019_11_17_053903) do
 
   create_table "active_admin_comments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "namespace"
@@ -54,6 +54,7 @@ ActiveRecord::Schema.define(version: 2019_11_14_071947) do
     t.date "reserve_date", null: false
     t.integer "start_time", null: false
     t.integer "end_time", null: false
+    t.integer "payment_fee", null: false
     t.index ["studio_id"], name: "index_reserve_details_on_studio_id"
     t.index ["user_id"], name: "index_reserve_details_on_user_id"
   end

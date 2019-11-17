@@ -1,4 +1,4 @@
-= form_with(model: post) do |f|
+= form_with(model: post, data: { remote: false }) do |f|
   タイトル
   %br
   = f.text_field :title, value: @post.title

@@ -10,22 +10,31 @@
   %body
     %header.header
       .title
-        = link_to "reserve", root_path
-      .info
-        %li
-          = link_to "スタジオ一覧", root_path
-        %li
+        = link_to "Studio XXXX", root_path
+      %ul.menus
+        %li.menu
+          = link_to "スタジオ", root_path
+          %ul.sub_menus
+            - @studio_lists.each do |studio_list|
+              %li.sub_menu
+                = link_to studio_list.name + " st", studio_path(studio_list.id)
+        %li.menu
           = link_to "掲示板", posts_path
-        %li
+        - if user_signed_in?
+          %li.menu
+            = link_to "マイページ", user_path(current_user.id)
+            %ul.sub_menus
+              %li.sub_menu
+                = link_to "トップ", user_path(current_user.id)
+              %li.sub_menu
+                = link_to "予約一覧", reserve_user_path(current_user)
+              %li.sub_menu
+                = link_to "ログアウト", destroy_user_session_path, method: :delete
+        - else
+          %li.menu
+            = link_to "新規会員登録", new_user_registration_path
+          %li.menu
+            = link_to "ログイン", new_user_session_path
+        %li.menu
           = link_to "管理者用", admin_root_path
-          - if user_signed_in?
-            %li
-              = link_to "マイページ", user_path(current_user.id)
-            %li
-              = link_to "ログアウト", destroy_user_session_path, method: :delete
-          - else
-            %li
-              = link_to "新規会員登録", new_user_registration_path
-            %li
-              = link_to "ログイン", new_user_session_path
     = yield

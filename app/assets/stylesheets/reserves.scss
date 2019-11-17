@@ -4,17 +4,36 @@
 .reserving{
   width: 50%;
   margin: 50px auto;
-  background-color: mediumorchid;
 
   &__title{
-    font-size: 18px;
+    font-size: 30px;
+    border-bottom: 2px solid;
   }
   &__form{
-    &__date{
-      
+    margin: 20px;
+    &__datetime{
+      display: flex;
+      font-size: 18px;
+      &__title{
+        font-size: 18px;
+      }
+      &--date{
+        width: 150px;
+        height: 30px;
+        margin-right: 10px;
+        
+      }
+      &--time{
+        margin: 0 5px;
+      }
     }
-    &__time{
-    
+    &__fee{
+      font-size: 18px;
+      margin-top: 10px;
+      display: flex;
+    }
+    &__button{
+      margin-top: 10px; 
     }
   }
 }

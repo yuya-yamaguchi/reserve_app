@@ -9,7 +9,7 @@ class StudiosController < ApplicationController
 
     # 本日から1週間分の日付を算出
     today = Date.today
-    @week = ["時間/日付"]
+    @week = []
     7.times { |i| @week << today + i.day}
     
     # 時間の最大値を取得
@@ -21,11 +21,11 @@ class StudiosController < ApplicationController
     
     # 予約表設定処理
     @studio_reserves = []
-    while max_hour >= hour do
+    while hour <= max_hour do
       # 各日の時間単位で配列に設定
       @studio_reserves.push(Reserve.where(studio_id: params[:id])
                                    .where(hour: hour)
-                                   .where('date between ? and ?', @week[1], @week[7])
+                                   .where('date between ? and ?', @week[0], @week[6])
                                    .order(:date))
       hour += 1
     end

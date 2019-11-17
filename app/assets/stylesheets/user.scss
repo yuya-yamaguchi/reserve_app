@@ -6,71 +6,85 @@
   height: 100%;
   background-color: lightgray;
   padding:50px 0;
+  
   &__profile{
     width: 60%;
-    height: 200px;
+    height: 250px;
     margin: 50px auto;
-    background-color: lightgreen;
+    // background-color: lightgreen;
+    position: relative;
+
+    &__title{
+      font-size: 30px;
+      border-bottom: 2px solid;
+    }
     &__image{
-      width: 100px;
+      width: 150px;
       margin: 30px;
       float:left;
+      border-radius: 3px;
+      filter: drop-shadow(1px 1px 1px rgba(0,0,0,0.6));
     }
     &__name{
-      padding-top: 30px;
+      font-size: 24px;
+      padding-top: 50px;
+      // background-color: lightskyblue;
+      float:left;
     }
     &__self-introduction{
-      padding: 20px;
+      width: 400px;
       font-size: 12px;
+      // background-color: lightslategray;
+      position: absolute;
+      top: 140px;
+      left: 250px;
+    }
+    &__links{
+      position: absolute;
+      bottom: 30px;
+      right: 30px;
+      width: 140px;
+      height: 140px;
+      font-size: 14px;
+      &__link{
+        height: 30px;
+        width: 140px;
+        line-height: 30px;
+        text-align: center;
+        background-color: white;
+        border: 1px solid gray;
+        border-radius: 3px;
+        a{
+          display: block;
+          text-decoration: none;
+          color: black;
+        }
+        :hover{
+          background-color: lightseagreen;
+          opacity: 0.8;
+          transition: 0.2s ;
+        }
+      }
     }
   }
 
   &__posts{
     width: 60%;
-    height: 250px;
-    background-color: lightpink;
+    height: 600px;
+    // background-color: lightpink;
     margin: 50px auto;
     &--title{
-      font-size: 18px;
+      font-size: 30px;
+      border-bottom: 2px solid;
     }
     &__lists{
       width: 95%;
       height: 82%;
       background-color: white;
-      margin: 5px auto;
+      margin: 20px auto;
       overflow: scroll;
-      &__list{
-        font-size: 14px;
-      }
-    }
-
-  }
-
-  &__reserve-status{
-    width: 60%;
-    height: 250px;
-    background-color: lightsalmon;
-    margin: 50px auto;
-    
-    &--title{
-      font-size: 18px;
-    }
-    &__detail{
-      width: 95%;
-      height: 82%;
-      background-color: white;
-      margin: 5px auto;
-      overflow: scroll;
-    }
-  }
-
-  &__messages{
-    width: 60%;
-    height: 250px;
-    background-color: lightcyan;
-    margin: 50px auto;
-    &--title{
-      font-size: 18px;
+      border-radius: 3px;
+      border: 1px solid;
     }
   }
 }
@@ -144,3 +158,65 @@
     height: 150px;
   }
 }
+
+/************************************************************/
+/* 予約画面                                                  */
+/************************************************************/
+.reserve-status{
+  width: 60%;
+  // background-color: lightsalmon;
+  margin: 50px auto;
+  &__title{
+    font-size: 30px;
+  }
+  &__details{
+    width: 90%;
+    height: 82%;
+    // background-color: white;
+    font-size: 14px;
+    margin: 5px auto;
+    &__date{
+
+      width: 40%;
+    }
+    &__studio{
+      width: 20%;
+    }
+    &__fee{
+      width: 20%;
+    }
+    &__links{
+      position: relative;
+      &--link{
+        position: absolute;
+        bottom: 0;
+        width: 50px;
+        height: 20px;
+        background-color: red;
+        margin-bottom: 3px;
+        border-radius: 3px;
+        .cancel-button{
+          text-decoration: none;
+          font-size: 12px;
+          color: white;
+          line-height: 20px;
+        }
+      }
+    }
+  }
+  tr{
+    border-bottom: 1px solid;
+  }
+  th{
+    font-size: 18px;
+    border-bottom: 1px solid;
+    height: 30px;
+    text-align: center;
+  }
+  td{
+    height: 20px;
+    text-align: center;
+    padding-top: 20px;
+  }
+}
+

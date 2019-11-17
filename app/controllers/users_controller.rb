@@ -12,7 +12,12 @@ class UsersController < ApplicationController
   def update
     user = User.find(current_user.id)
     user.update(user_params)
-    redirect_to root_path
+    redirect_to user_path(current_user.id)
+  end
+
+  def reserve
+    @user = User.find(params[:id])
+    @reserve_details = @user.reserve_details.order('reserve_date DESC').order('start_time DESC')
   end
 
   private

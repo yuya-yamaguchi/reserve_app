@@ -1,6 +1,6 @@
 .main
   .user-edit
-    = form_with(model: @user) do |f|
+    = form_with(model: @user, data: { remote: false }) do |f|
       .user-edit__personal
         .user-edit__personal__title
           個人情報

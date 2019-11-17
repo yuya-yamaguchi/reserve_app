@@ -1,0 +1,28 @@
+.main
+  .reserve-status
+    .reserve-status__title
+      スタジオ予約状況
+    .reserve-status__details
+      %table
+        %tr
+          %th.reserve-status__details__date
+            日時
+          %th.reserve-status__details__studio
+            スタジオ
+          %th.reserve-status__details__fee
+            料金
+          %th
+        - @reserve_details.each do |reserve_detail|
+          %tr
+            %td
+              = reserve_detail.reserve_date
+              = reserve_detail.start_time.to_s + "時 〜"
+              = reserve_detail.end_time.to_s + "時"
+            %td
+              = reserve_detail.studio.name + " st"
+            %td
+              = reserve_detail.payment_fee.to_s + " 円"
+            %td.reserve-status__details__links
+              - if Date.today < reserve_detail.reserve_date
+                .reserve-status__details__links--link
+                  = link_to "取消", cancel_reserve_path(reserve_detail.id), method: :post, class: "cancel-button"

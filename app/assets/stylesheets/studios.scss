@@ -9,15 +9,29 @@
   font-family: "Hiragino Kaku Gothic ProN","メイリオ", sans-serif;
 }
 
+.home-top{
+  width: 100%;
+  filter: drop-shadow(1px 1px 1px rgba(0,0,0,0.6));
+  position: relative;
+  &__name{
+    font-size: 80px;
+    position: absolute;
+    right: 250px;
+    bottom: 0;
+  }
+}
+
 .studio-list{
   width: 90%;
-  height: 300px;
-  background-color: lightgreen;
-  margin: 50px auto;
+  // background-color: lightgreen;
+  margin: 100px auto;
 
   &__title{
-    font-size: 20px;
+    font-size: 30px;
     font-family: "Hiragino Kaku Gothic ProN","メイリオ", sans-serif;
+    padding-top: 30px;
+    margin-bottom: 30px;
+    border-bottom: 2px solid;
   }
   &__studios{
     width: 90%;
@@ -40,41 +54,57 @@
         display: block;
         font-size: 20px;
       }
-      &--area{
+      &__area{
         font-size: 14px;
-        margin-left: 20px;
+        margin-left: 10px;
+        padding: 5px 0;
       }
-      &--details{
+      &__details{
         font-size: 12px;
         margin-left: 10px;
         font-family: "Hiragino Kaku Gothic ProN","メイリオ", sans-serif;
+        .key{
+
+        }
+        .value{
+          padding-left: 20px;
+        }
       }
     }
   }
 }
 
-/* スタジオ詳細画面 */
+/**************************************************/
+/* スタジオ詳細画面                                 */
+/**************************************************/
 .studio{
   width: 70%;
   height: 300px;
-  background-color: lightsalmon;
+  // background-color: lightsalmon;
   margin: 50px auto;
-  display: flex;
-  &__img{
-    width: 200px;
-    margin: 30px;
+  &__name{
+    height: 40px;
+    font-size: 30px;
+    border-bottom: 2px solid;
   }
-  &__explain{
-    margin: 30px;
-    padding-left: 50px;
-
-    &__intro{
-      font-size: 16px;
-      margin-bottom: 20px;
+  &__info{
+    display: flex;
+    &__img{
+      width: 300px;
+      margin: 30px 60px 0;
+      filter: drop-shadow(2px 2px 2px rgba(0,0,0,0.6));
     }
-    &__inst{
-      font-size: 12px;
-      margin-bottom: 20px;
+    &__explain{
+      margin: 30px;
+
+      &__intro{
+        font-size: 16px;
+        margin-bottom: 20px;
+      }
+      &__inst{
+        font-size: 12px;
+        margin-bottom: 20px;
+      }
     }
   }
 }
@@ -82,16 +112,18 @@
 .reserve{
   width: 70%;
   height: 450px;
-  background-color: lightseagreen;
+  // background-color: lightseagreen;
   margin: 50px auto;
 
   &__title{
-    font-size: 20px;
-    color: red;
+    font-size: 30px;
+    border-bottom: 2px solid;
+    padding-bottom: 10px;
   }
 
   &__table{
-    margin: 0 auto;
+    margin: 20px auto;
+    width: 80%;
     
     &--date{
       background-color: mediumaquamarine;

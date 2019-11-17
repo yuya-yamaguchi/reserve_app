@@ -1,15 +1,22 @@
 %li.studio-list__studios__studio
   = link_to image_tag("/studio_img/#{studio.img}", { border: '0', class: 'studio-list__studios__studio--img'}), studio_path(studio.id)
-  = link_to studio.name, studio_path(studio.id), class: "studio-list__studios__studio--name"
-  .studio-list__studios__studio--details
-    %b GuitarAmp:
-    = studio.guitar_amp
-    %br
-    %b BassAmp:
-    = studio.bass_amp
-    %br
-    %b Drums:
-    = studio.drums
-    %br
-    %b Keybords:
-    = studio.keybords
+  = link_to studio.name + " st", studio_path(studio.id), class: "studio-list__studios__studio--name"
+  .studio-list__studios__studio__area
+    %b 10畳
+  .studio-list__studios__studio__details
+    %b.key
+      GuitarAmp:
+    .value
+      = studio.guitar_amp
+    %b.key
+      BassAmp:
+    .value
+      = studio.bass_amp
+    %b.key
+      Drums:
+    .value
+      = studio.drums
+    %b.key
+      Keybords:
+    .value
+      = studio.keybords

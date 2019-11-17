@@ -5,16 +5,24 @@
       st
     .reserving__form
       = form_with url: studio_reserve_path, local: true, method: :patch do |f|
-        日付：
-        = f.select :date, @week.map{|w| [w]}, {selected: @studio_resrve.date}, {class: "reserving__form__date"}
-        .reserving__form__time
-          時間：
-          = f.select :start_hour, @hairetsu.map{|h| [h]}, {selected: @studio_resrve.hour}, {class: "reserving__form--start"}
+        .reserving__form__datetime
+          .reserving__form__datetime__title
+            日時：
+          = f.select :date, @week.map{|w| [w]},
+              {selected: @studio_resrve.date},
+              {class: "reserving__form__datetime--date"}
+          = f.select :start_hour, @hairetsu.map{|h| [h]},
+              {selected: @studio_resrve.hour},
+              {class: "reserving__form__datetime--time", id: "start_time"}
           時〜
-          = f.select :end_hour, @hairetsu2.map{|h| [h]}, {selected: @studio_resrve.hour + 1}, {class: "reserving__form--end"}
+          = f.select :end_hour, @hairetsu2.map{|h| [h]},
+              {selected: @studio_resrve.hour + 1},
+              {class: "reserving__form__datetime--time", id: "end_time"}
           時
-        = f.submit "予約する"
-
--# = form_for studio_reserve_path, method: :patch do |f|
--# = form_for [@studio, @studio_resrve] do |f|
--# = form_with url: studio_reserf_path, html: { method: :patch } do |f|
+        .reserving__form__fee
+          .reserving__form__fee__title
+            料金：
+            %input#base_fee{type: "hidden", value: @studio.fee}/
+          .reserving__form__fee__value
+            #payment_fee= @studio.fee.to_s + " 円"
+        = f.submit "予約する", class: "reserving__form__button"
